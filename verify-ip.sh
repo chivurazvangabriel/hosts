@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTS_FILE="$HOME/etc/hosts"
+HOSTS_FILE=${1:-"$HOME/etc/hosts"}
 
 verify_IP() {
     local host="$1"
@@ -29,6 +29,11 @@ verify_IP() {
 
     return 0
 }
+
+if ! [[ -f HOSTS_FILE ]]; then
+    >&2 echo "File $HOSTS_FILE does not exist"
+    exit 1
+fi
 
 any_failure=0
 
