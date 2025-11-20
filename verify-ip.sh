@@ -62,6 +62,8 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     done
 done <"$HOSTS_FILE"
 
+echo '@atomicul a fost aici'
+
 if [[ $any_failure -ne 0 ]]; then
     exit 1
 else
